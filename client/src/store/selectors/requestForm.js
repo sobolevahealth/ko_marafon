@@ -1,0 +1,1 @@
+export const selectStepToRequest = ({ requestForm: { step } }) => step

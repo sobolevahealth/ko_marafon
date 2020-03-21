@@ -1,0 +1,60 @@
+//============= Main variables start ==========
+$breakpoints: (
+  mobile-medium: 500px,
+  mobile-max: 767px,
+  tablet: 768px,
+  tablet-large: 820px,
+  tablet-max: 1024px,
+  desktop: 1025px,
+  desktop-small: 1000px,
+  desktop-mac: 1270px,
+  desktop-medium: 1366px
+);
+$black: #000000;
+$white: #ffffff;
+$gray: #a7a7a7;
+$gray-input: #d8d8d8;
+$blue: #384ce3;
+$lightblue: #428bca;
+$bodyColor: #212529;
+$light-gray: #666;
+$main-orange: #fa7c30;
+$main-black: #212529;
+
+//form colors
+$error-text: #ff1313;
+$error-bg: #ffadad;
+$placeHolder: #adadad;
+
+$use-fadeInDown: true;
+$use-fadeInRight: true;
+$use-fadeInLeft: true;
+$use-fadeIn: true;
+$use-fadeInUp: true;
+$use-fadeOut: true;
+$use-rotateIn: true;
+
+$screenOrientations: (
+  portrait: "portrait",
+  landscape: "landscape"
+);
+
+//fonts
+$fontMontserrat: "Montserrat", sans-serif;
+$fontOpenSans: "Open Sans", sans-serif;
+$fontMyriadPro: "MyriadPro", sans-serif;
+$fontDidot: "Didot", serif;
+$fontPTSerif: "PTSerif", serif;
+$fontSystem: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+//timing functions
+$tfStandard: cubic-bezier(0.4, 0, 0.2, 1);
+$tfDecel: cubic-bezier(0, 0, 0.2, 1);
+$tfAccel: cubic-bezier(0.4, 0, 1, 1);
+$tfSmooth: cubic-bezier(0.1, 0.9, 0.4, 1);
+
+$animation-time: 3s;
+$animation-delay: 3s;
+//============= Main variables end ==========

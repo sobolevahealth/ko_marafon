@@ -1,0 +1,38 @@
+@import '../../../sass/base/_variables';
+
+.top-block-container {
+    position: relative;
+    height: 625px;
+
+    .top-block-bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+    }
+
+    h1, h2 {
+        margin: 0;
+        text-align: left;
+        font-size: 70px;
+        font-family: "Open Sans";
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .top-block-title {
+        padding: 100px 165px 0;
+        color: white;
+    }
+
+    .top-block-subtitle {
+        padding: 0 165px 0;
+        color: $main-orange;
+    }
+
+    .top-block-request-form {
+        position: relative;
+        width: 410px;
+        margin: 50px 10% 40px auto;
+    }
+}

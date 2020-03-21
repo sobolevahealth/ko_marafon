@@ -1,0 +1,209 @@
+@import "./_mixins";
+@import "./_fonts.scss";
+@import "~animate-sass/animate";
+
+.animated-1s {
+  animation-duration: 1s;
+  animation-delay: 1s;
+  @extend .animated;
+}
+.animated-1_5s {
+  animation-delay: 1.5s;
+  @extend .animated;
+}
+
+.animated-2s {
+  animation-delay: 2s;
+  @extend .animated;
+}
+
+.animated-3s {
+  animation-delay: 3s;
+  @extend .animated;
+}
+
+.animated-fill-mode-none {
+  animation-fill-mode: none;
+  @extend .animated;
+}
+
+.opacity {
+  opacity: 0;
+}
+
+//bootstrap styles
+
+#editor {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  outline: 0;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+}
+
+.pd-mask {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.pd-mask-show {
+  display: block;
+}
+
+.wrapper {
+  min-width: 300px;
+  width: 100%;
+  padding: 0 50px;
+  max-width: 1366px;
+  margin: 0 auto;
+  @include komarafon-media-max-width("mobile-max") {
+    padding: 0 10px;
+  }
+}
+
+.default-btn {
+  color: black;
+  font-size: 14px;
+  border: 2px solid #f0cc7f;
+  font-family: "openSansBold", sans-serif;
+  background: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 250ms;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+
+  &:hover {
+    background-color: #f0cc7f;
+  }
+}
+
+//visually hide element, but keep it focusable and "screen-readable"
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+}
+
+//============ Callback widget animation start =========
+.animation-active {
+  transform: translate(0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  animation-delay: $animation-delay;
+
+  &:before,
+  &:after {
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  &:before {
+    animation: pulsateInner $animation-time cubic-bezier(0.36, 0.07, 0.19, 0.97)
+      infinite;
+    animation-delay: $animation-delay;
+  }
+
+  &:after {
+    animation: pulsateOuter $animation-time cubic-bezier(0.36, 0.07, 0.19, 0.97)
+      infinite;
+    animation-delay: $animation-delay;
+  }
+
+  &.pause-animation {
+    animation: none;
+
+    &:before,
+    &:after {
+      animation: none;
+    }
+  }
+}
+
+@keyframes pulsateInner {
+  0% {
+    visibility: visible;
+    transform: translate3d(-50%, -50%, 0) scale(0.1, 0.1);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.4;
+  }
+
+  40%,
+  100% {
+    visibility: hidden;
+    transform: translate3d(-50%, -50%, 0) scale(1.1, 1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes pulsateOuter {
+  0% {
+    visibility: visible;
+    transform: translate3d(-50%, -50%, 0) scale(0.1, 0.1);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.3;
+  }
+
+  40%,
+  100% {
+    visibility: hidden;
+    transform: translate3d(-50%, -50%, 0) scale(1.1, 1.1);
+    opacity: 0;
+  }
+}
+
+//============ Callback widget animation end ========
+
+//============ Google recaptcha start =========
+.grecaptcha-badge {
+  visibility: hidden;
+}
+//============ Google recaptcha end ========

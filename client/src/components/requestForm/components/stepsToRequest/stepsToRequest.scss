@@ -1,0 +1,46 @@
+@import "../../../../sass/base/variables";
+
+.steps-to-request {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .step-item {
+    position: relative;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    background-color: transparent;
+    border: 2px solid $main-orange;
+    color: $white;
+    font-weight: 700;
+
+    &.active {
+      background-color: $main-orange;
+      border: none;
+    }
+
+    &:after {
+      position: absolute;
+      height: 2px;
+      background-color: rgba(250, 124, 48, 0.38);
+      width: 87px;
+      content: "";
+      left: 34px;
+    }
+
+    &:last-child:after {
+      display: none;
+    }
+  }
+
+  .step-done-img {
+    width: 15px;
+    height: 15px;
+  }
+}

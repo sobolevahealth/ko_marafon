@@ -1,0 +1,36 @@
+@import "../../../../sass/base/variables";
+
+.range-field {
+  width: 100%;
+  margin: 20px 0;
+
+  .range-label {
+    color: $main-orange;
+    font-size: 14px;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .input-range__label--min,
+  .input-range__label--max {
+    top: 0;
+  }
+
+  .input-range__label--min {
+    left: -28px;
+  }
+
+  .input-range__label--max {
+    right: -28px;
+  }
+
+  .input-range__label {
+    color: $white;
+  }
+
+  .input-range__track--active,
+  .input-range__slider {
+    background: $main-orange;
+    border: none;
+  }
+}
