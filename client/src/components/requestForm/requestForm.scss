@@ -5,51 +5,52 @@
   width: 100%;
   outline: 8px double rgba($main-orange, 0.38);
   outline-offset: 2px;
-  padding: 20px 50px 20px 60px;
+  padding: 20px 40px 20px 50px;
   box-sizing: border-box;
 
   .request-form {
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
 
     .form-top-text {
       margin: 0 auto 10px;
+      flex-basis: 100%;
       font-family: "Open Sans";
       font-size: 24px;
       font-weight: 600;
       color: $white;
       text-transform: uppercase;
     }
+  }
 
-    .form-submit-btn {
-      width: 100%;
-      border: none;
-      margin-top: 20px;
-      padding: 10px 15px;
-      cursor: pointer;
-      font-family: "Open Sans";
-      font-size: 14px;
-      font-weight: 700;
-      color: $white;
-      text-transform: uppercase;
-      background-color: $main-orange;
-      border-radius: 0.5em;
-      outline: none;
+  .form-submit-btn {
+    width: 100%;
+    border: none;
+    margin-top: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 700;
+    color: $white;
+    text-transform: uppercase;
+    background-color: $main-orange;
+    border-radius: 0.5em;
+    outline: none;
 
-      &:active {
-        transform: scale(0.96);
-      }
+    &:active {
+      transform: scale(0.96);
     }
   }
 
   .success-form {
     font-family: "Open Sans";
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
     color: $white;
   }

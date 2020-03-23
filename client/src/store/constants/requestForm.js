@@ -1,1 +1,3 @@
 export const SET_REQUEST_FORM = 'SET_REQUEST_FORM'
+export const SET_SENT_DATA = 'SET_SENT_DATA'
+export const SET_STEP_DONE = 'SET_STEP_DONE'

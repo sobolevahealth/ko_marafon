@@ -8,21 +8,35 @@ import RangeForm from "./components/rangeForm/rangeForm";
 import "./requestForm.scss";
 import "base_style/_placeholders.scss";
 //STORE:
-import { selectStepToRequest } from "Store/selectors/requestForm";
+import {
+  selectStepToRequest,
+  selectSentData
+} from "Store/selectors/requestForm";
 //ACTION
-import { setRequestForm } from "Store/actions/requestForm";
+import {
+  setRequestForm,
+  setSentData,
+  setDoneStep
+} from "Store/actions/requestForm";
 //MODELS
 import { formSchema } from "Model/requestForm";
 
 const RequestForm = () => {
   const [success, setSuccess] = useState(false);
   const requestStep = useSelector(selectStepToRequest);
+  const sentData = useSelector(selectSentData);
   const dispatch = useDispatch();
 
   const { register, handleSubmit, errors } = useForm(); // initialise the hook
 
+  const setData = data => {
+    dispatch(setSentData(data));
+  };
+
   const onSubmit = async (data, e) => {
     e.preventDefault();
+
+    dispatch(setDoneStep({ [`step_${requestStep}`]: true }));
 
     if (requestStep === 4) {
       await fetch("/send-email", {
@@ -30,13 +44,21 @@ const RequestForm = () => {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(sentData)
       }).then(data => {
         setSuccess(true);
       });
     } else {
-      console.log(34744);
       dispatch(setRequestForm({ step: requestStep + 1 }));
+    }
+  };
+
+  const closeSuccess = () => {
+    setSuccess(false);
+    dispatch(setRequestForm({ step: 1 }));
+
+    for (let i = 1; i < 5; i++) {
+      dispatch(setDoneStep({ [`step_${i}`]: false }));
     }
   };
 
@@ -45,9 +67,13 @@ const RequestForm = () => {
       {!success && (
         <form className="request-form" onSubmit={handleSubmit(onSubmit)}>
           {requestStep === 2 || requestStep === 3 ? (
-            <RangeForm formSchema={formSchema[requestStep - 1]} />
+            <RangeForm
+              formSchema={formSchema[requestStep - 1]}
+              onChange={setData}
+            />
           ) : (
             <InputForm
+              onChange={setData}
               register={register}
               errors={errors}
               formSchema={formSchema[requestStep - 1]}
@@ -55,7 +81,19 @@ const RequestForm = () => {
           )}
         </form>
       )}
-      {success && <p className="success-form">Спасибо!!!!</p>}
+      {success && (
+        <>
+          <p className="success-form">
+            Спасибо, ваша заявка принята! <br />
+            <br />
+            Ждите приглашения в Telegram, где будут высланы дальнейшие
+            инструкции
+          </p>
+          <button className="form-submit-btn" onClick={closeSuccess}>
+            Хорошо
+          </button>
+        </>
+      )}
     </div>
   );
 };

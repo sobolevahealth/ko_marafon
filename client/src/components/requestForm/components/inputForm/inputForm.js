@@ -2,11 +2,12 @@ import React from "react";
 
 import InputField from "../inputField/inputField";
 
-const InputForm = ({ formSchema, register, errors }) => (
+const InputForm = ({ formSchema, register, errors, onChange }) => (
   <>
     <p className="form-top-text">{formSchema.title}</p>
     {formSchema.form.map((input, index) => (
       <InputField
+        onChange={onChange}
         name={input.name}
         type={input.type}
         logo={input.logo}
@@ -14,6 +15,8 @@ const InputForm = ({ formSchema, register, errors }) => (
         register={register}
         errors={errors}
         key={index}
+        label={input.label}
+        required={input.required}
         props={input}
       />
     ))}

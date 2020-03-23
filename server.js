@@ -23,14 +23,22 @@ app.post("/send-email", function(req, res) {
     to: "olgabondare21@gmail.com", // list of receivers
     subject: "Subject of your email", // Subject line
     html: `<table cellpadding="10" border="2" cellspacing="0"><tr><td>Name:</td><td>${req.body.name}</td></tr>
-    <tr><td>Last Name:</td><td>${req.body.lastName}</td></tr><tr><td>Phone:</td><td>${req.body.phone}</td></tr></table>`
+    <tr><td>Phone:</td><td>${req.body.phone}</td></tr><tr><td>Workout:</td><td>${req.body.workout}</td></tr>
+    <tr><td>Effort:</td><td>${req.body.effort}</td></tr><tr><td>Weight:</td><td>${req.body.weight}</td></tr>
+    <tr><td>Height:</td><td>${req.body.height}</td></tr><tr><td>Waist:</td><td>${req.body.waist}</td></tr>
+    <tr><td>Hips:</td><td>${req.body.hips}</td></tr><tr><td>Bust:</td><td>${req.body.bust}</td></tr>
+    <tr><td>Arm:</td><td>${req.body.arm}</td></tr><tr><td>Leg:</td><td>${req.body.leg}</td></tr>
+    <tr><td>Allergy:</td><td>${req.body.milk ? 'Лактоза' : ''} ${req.body.meat ? 'Мясо' : ''} ${req.body.egg ? 'Яйца' : ''}
+    ${req.body.fish ? 'Рыба' : ''} ${req.body.bird ? 'Птица' : ''} ${req.body.gluten ? 'Глютен' : ''}
+    ${req.body.avocado ? 'Авокадо' : ''} ${req.body.nuts ? 'Орехи' : ''} ${req.body.beans ? 'Бобы' : ''}</td></tr>
+    <tr><td>Comments:</td><td>${req.body.comments}</td></tr><tr><td>Agree:</td><td>${req.body.agree}</td></tr></table>`
   };
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
       user: "marafonolya2019@gmail.com",
-      pass: "1-marafon"
+      pass: "sobolevahealth6464"
     }
   });
 

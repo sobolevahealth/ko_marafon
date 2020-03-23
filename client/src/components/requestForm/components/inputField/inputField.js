@@ -10,9 +10,11 @@ const InputField = ({
   label,
   errors,
   logo,
+  required,
+  onChange,
   props
 }) => (
-  <div className={`input-field ${name}-input`}>
+  <div className={`input-field ${name}-input ${type}`}>
     {label && <label htmlFor={name}>{label}</label>}
     {logo && (
       <div className="input-logo-container">
@@ -26,6 +28,15 @@ const InputField = ({
         name={name}
         placeHolder={placeHolder}
         props={props}
+        onChange={onChange}
+      />
+    ) : type === "textarea" ? (
+      <textarea
+        className={`form-input ${errors[name] ? "error" : ""}`}
+        name={name}
+        placeholder={placeHolder}
+        ref={register({ required: required })}
+        onChange={e => onChange({ [name]: e.target.value })}
       />
     ) : (
       <input
@@ -33,7 +44,8 @@ const InputField = ({
         name={name}
         placeholder={placeHolder}
         type={type}
-        ref={register({ required: true })}
+        ref={register({ required: required })}
+        onChange={e => onChange({ [name]: e.target.value })}
         {...props}
       />
     )}
