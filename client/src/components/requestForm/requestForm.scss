@@ -24,7 +24,18 @@
       font-size: 24px;
       font-weight: 600;
       color: $white;
+      border-bottom: 2px solid rgba(250, 124, 48, 0.6);
       text-transform: uppercase;
+    }
+
+    .form-checkboxes-text {
+      margin: 0 auto 10px;
+      flex-basis: 100%;
+      font-family: "Open Sans";
+      font-size: 14px;
+      font-weight: 600;
+      color: $white;
+      text-align: left;
     }
   }
 

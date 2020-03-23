@@ -77,6 +77,7 @@ const RequestForm = () => {
               register={register}
               errors={errors}
               formSchema={formSchema[requestStep - 1]}
+              requestStep={requestStep}
             />
           )}
         </form>

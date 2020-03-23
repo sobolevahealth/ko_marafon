@@ -2,9 +2,16 @@ import React from "react";
 
 import InputField from "../inputField/inputField";
 
-const InputForm = ({ formSchema, register, errors, onChange }) => (
+const InputForm = ({ formSchema, register, errors, onChange, requestStep }) => (
   <>
     <p className="form-top-text">{formSchema.title}</p>
+    {requestStep === 4 && (
+      <p className="form-checkboxes-text">
+        Отметь аллергии/непереносимости или продукты, которые не употребляешь
+        совсем{" "}
+      </p>
+    )}
+
     {formSchema.form.map((input, index) => (
       <InputField
         onChange={onChange}
